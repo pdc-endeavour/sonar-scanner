@@ -12,7 +12,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre
 ENV PATH=$PATH:$JAVA_HOME/bin
 
 # Copy the sonar-scanner executable to this image
-COPY --from=sonar-scanner /sonar-scanner-* /sonar-scanner/
+COPY --from=sonar-scanner /sonar-scanner/ /sonar-scanner/
 
 # Set the path to the sonar-scanner
 ENV PATH=$PATH:/sonar-scanner/bin
