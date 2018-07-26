@@ -6,4 +6,5 @@ RUN sonarScannerVersion=3.2.0.1227 \
  && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
  && unzip sonar-scanner-cli-$sonarScannerVersion.zip \
  && rm sonar-scanner-cli-$sonarScannerVersion.zip \
- && ln -s $sonarScannerPath/sonar-scanner /usr/bin/
+ && mv $sonarScannerPath/sonar-scanner /usr/bin/ \
+ && rm -r /sonar-scanner-$sonarScannerVersion/
