@@ -4,6 +4,9 @@ FROM infosupport/sonar-scanner:latest as sonar-scanner
 # Base this image on node 10 to enable analysis of for example TypeScript files
 FROM node:10-alpine
 
+# Add nss to enable the sonar-scanner to find /usr/lib/libnss3.so
+RUN apk add --no-cache nss
+
 # Copy the JRE from sonar-scanner
 COPY --from=sonar-scanner /usr/lib/jvm/ /usr/lib/jvm/
 
