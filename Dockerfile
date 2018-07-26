@@ -1,9 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM sonar-scanner as sonar-scanner
 
-RUN sonarScannerVersion=3.2.0.1227 \
- && sonarScannerPath=/sonar-scanner-$sonarScannerVersion/bin \
- && cd / \
- && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
- && unzip sonar-scanner-cli-$sonarScannerVersion.zip \
- && rm sonar-scanner-cli-$sonarScannerVersion.zip \
- && ln -s $sonarScannerPath/sonar-scanner /usr/bin/
+FROM node:10-alpine
+COPY --from=sonar-scanner /usr/bin/sonar-scanner /usr/bin/sonar-scanner
