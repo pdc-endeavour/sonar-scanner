@@ -23,9 +23,11 @@ stage('npm') {
 
 stage('SonarQube') {
     agent {
+        // Run the SonarQube analysis with the sonar-scanner Docker container with NodeJS support.
         docker 'infosupport/sonar-scanner:node-10'
     }
     options {
+        // Do not perform a Git clone. All files needed are in the stash.
         skipDefaultCheckout()
     }
     steps {
