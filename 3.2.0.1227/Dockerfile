@@ -7,7 +7,7 @@ RUN sonarScannerVersion=3.2.0.1227 \
  && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
  && unzip /sonar-scanner-cli-$sonarScannerVersion.zip \
  && rm /sonar-scanner-cli-$sonarScannerVersion.zip \
- && mv /sonar-scanner-cli-$sonarScannerVersion /sonar-scanner
+ && mv /sonar-scanner-$sonarScannerVersion /sonar-scanner
 
 # Set the path to the sonar-scanner
 ENV PATH=$PATH:/sonar-scanner/bin
