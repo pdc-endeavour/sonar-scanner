@@ -43,10 +43,8 @@ stage('SonarQube') {
 
         // Run Sonar Scanner with Typescript support
         withSonarQubeEnv("sonar") {
-            sh """#!/bin/bash -e
-                npm install typescript
-                sonar-scanner
-            """
+            sh 'npm install typescript'
+            sh 'sonar-scanner'
         }
 
         // Wait for the callback from SonarQube to enable the build to fail
