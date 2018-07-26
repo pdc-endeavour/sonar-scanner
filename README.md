@@ -1,6 +1,17 @@
 # sonar-scanner
 
-Sonar Scanner specifically built for Jenkins Pipelines with Docker steps.
+In order to perform SonarQube scan's locally or on a buildserver you'll need a Sonar Scanner.
+
+This sonar-scanner Docker image is specifically built for Jenkins Pipelines (Declarative syntax) with Docker steps.
+
+More information about the executable `sonar-scanner` can be found on: https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
+
+## Our coding standards
+
+- DRY: We try to duplicate code as little as possible. That's why you see image inheritance between Dockerfiles within this repository.
+- Minimal size: Always clean up temporary files in the same RUN statement to avoid large layers.
+- KISS: Less code is easier to maintain.
+- Secure: We never use insecure http requests and never ignore SSL faults.
 
 ## Examples
 
@@ -42,3 +53,7 @@ stage('SonarQube') {
     }
 }
 ```
+
+### Something else?
+
+There are always other cases which demand other software being present in the Docker container. We will add more when needed. If you run into some common case not supported, let us know!
