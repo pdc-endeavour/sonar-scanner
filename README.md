@@ -56,4 +56,4 @@ stage('SonarQube') {
 
 ### Something else?
 
-There are always other cases which demand other software being present in the Docker container. We will add more when needed. If you run into some common case not supported, let us know!
+There are always other cases which demand other software being present in the Docker container. We will add more when we run into common cases not supported yet. If you run into some common case not supported, let us know!
