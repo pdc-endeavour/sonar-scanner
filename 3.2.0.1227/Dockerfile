@@ -1,8 +1,13 @@
+# Base this image on JRE 8 to enable the sonar-scanner to run
 FROM openjdk:8-jre-alpine
 
+# Download and unzip the sonar-scanner
 RUN sonarScannerVersion=3.2.0.1227 \
  && cd / \
  && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
- && unzip sonar-scanner-cli-$sonarScannerVersion.zip \
- && rm sonar-scanner-cli-$sonarScannerVersion.zip \
- && ln -s /sonar-scanner-$sonarScannerVersion/bin/sonar-scanner /usr/bin/
+ && unzip /sonar-scanner-cli-$sonarScannerVersion.zip \
+ && rm /sonar-scanner-cli-$sonarScannerVersion.zip \
+ ** mv /sonar-scanner-cli-$sonarScannerVersion /sonar-scanner
+
+# Set the path to the sonar-scanner
+ENV PATH=$PATH:/sonar-scanner/bin
