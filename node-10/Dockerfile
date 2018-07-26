@@ -4,8 +4,15 @@ FROM infosupport/sonar-scanner:latest as sonar-scanner
 # Base this image on node 10 to enable analysis of for example TypeScript files
 FROM node:10-alpine
 
-# Copy the sonarqube executable to this image
-COPY --from=sonar-scanner /usr/bin/sonar-scanner /usr/bin/sonar-scanner
+# Copy the JRE from sonar-scanner
+COPY --from=sonar-scanner /usr/lib/jvm/ /usr/lib/jvm/
 
-# Copy the jar file needed to run the sonarqube scanner
-COPY --from=sonar-scanner /usr/lib/sonar-scanner-cli-* /usr/lib/
+# Set the environment variables to the JDK copied from sonar-scanner
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/jre
+ENV PATH=$PATH:$JAVA_HOME/bin
+
+# Copy the sonar-scanner executable to this image
+COPY --from=sonar-scanner /sonar-scanner-* /sonar-scanner/
+
+# Set the path to the sonar-scanner
+ENV PATH=$PATH:/sonar-scanner/bin
