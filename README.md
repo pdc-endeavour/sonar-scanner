@@ -8,7 +8,7 @@ Sonar Scanner specifically built for Jenkins Pipelines with Docker steps.
 
 If you would like to run a maven build using sonarqube. We suggest using `mvn sonar:sonar`.
 
-### NPM/Nodejs
+### NPM/NodeJS
 
 If you would like to perform a SonarQube analysis on an npm based build using Jenkins Docker steps, you can use the following construction:
 
