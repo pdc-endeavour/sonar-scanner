@@ -4,7 +4,7 @@ FROM adoptopenjdk/openjdk8:alpine
 # Download and unzip the sonar-scanner
 RUN sonarScannerVersion=3.2.0.1227 \
  && cd / \
- && wget https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
+ && wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonarScannerVersion.zip \
  && unzip /sonar-scanner-cli-$sonarScannerVersion.zip \
  && rm /sonar-scanner-cli-$sonarScannerVersion.zip \
  && mv /sonar-scanner-$sonarScannerVersion /sonar-scanner
