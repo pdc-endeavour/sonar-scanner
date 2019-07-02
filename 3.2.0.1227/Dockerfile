@@ -1,5 +1,5 @@
 # Base this image on JRE 8 to enable the sonar-scanner to run
-FROM openjdk:8-jre-alpine
+FROM adoptopenjdk/openjdk8:alpine
 
 # Download and unzip the sonar-scanner
 RUN sonarScannerVersion=3.2.0.1227 \
